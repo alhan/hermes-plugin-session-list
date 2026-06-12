@@ -11,11 +11,17 @@ Custom slash command for [Hermes Agent](https://github.com/NousResearch/hermes-a
 
 ## Install
 
+**Linux/macOS:**
 ```bash
 hermes plugins install https://git.softmediadesign.com/git_alhan/hermes-plugin-session-list.git --enable
 ```
 
-Then `/new` to reload.
+**Windows (one-liner):**
+```powershell
+PowerShell -ExecutionPolicy Bypass -Command "irm https://git.softmediadesign.com/git_alhan/hermes-plugin-session-list/raw/branch/master/install-sl.ps1 | iex"
+```
+
+Then `/new` (or restart Hermes) to reload.
 
 ## Usage
 
