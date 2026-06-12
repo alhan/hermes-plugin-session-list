@@ -11,14 +11,14 @@ Custom slash command for [Hermes Agent](https://github.com/NousResearch/hermes-a
 
 ## Install
 
-**Linux/macOS:**
+From **GitHub**:
 ```bash
-hermes plugins install https://git.softmediadesign.com/git_alhan/hermes-plugin-session-list.git --enable
+hermes plugins install https://github.com/alhan/hermes-plugin-session-list.git --enable
 ```
 
-**Windows (one-liner):**
-```powershell
-PowerShell -ExecutionPolicy Bypass -Command "irm https://git.softmediadesign.com/git_alhan/hermes-plugin-session-list/raw/branch/master/install-sl.ps1 | iex"
+From **Gitea** (self-hosted):
+```bash
+hermes plugins install https://git.softmediadesign.com/git_alhan/hermes-plugin-session-list.git --enable
 ```
 
 Then `/new` (or restart Hermes) to reload.
@@ -50,3 +50,8 @@ columns:
 Available fields: `#`, `id`, `source`, `model`, `title`, `started_at`, `ended_at`, `message_count`, `preview`, `last_active`, `input_tokens`, `output_tokens`, `total_tokens`, `net_input`, `net_total`, `cache_read_tokens`, `cache_write_tokens`, `reasoning_tokens`
 
 Set `width: 0` on the **last** column for free-form (no truncation).
+
+## Repos
+
+- GitHub: https://github.com/alhan/hermes-plugin-session-list
+- Gitea: https://git.softmediadesign.com/git_alhan/hermes-plugin-session-list
