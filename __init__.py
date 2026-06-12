@@ -155,7 +155,7 @@ def _handle_sl(raw_args: str) -> Optional[str]:
     # Load column config
     try:
         if config_path.exists():
-            cfg = yaml.safe_load(config_path.read_text())
+            cfg = yaml.safe_load(config_path.read_text(encoding="utf-8"))
             columns = cfg.get("columns", [])
         else:
             columns = []
