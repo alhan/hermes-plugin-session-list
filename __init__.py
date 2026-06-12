@@ -19,8 +19,14 @@ from typing import Optional
 # ── Helpers ──────────────────────────────────────────────────────────
 
 def _hermes_home() -> Path:
+    """Return Hermes home, delegating to the authoritative source when available."""
     import os, sys
-    # Hermes'in resmi yolunu bul
+    # Use official hermes_constants if available (handles profiles, overrides, etc.)
+    try:
+        from hermes_constants import get_hermes_home
+        return get_hermes_home()
+    except ImportError:
+        pass
     if "HERMES_HOME" in os.environ:
         return Path(os.environ["HERMES_HOME"])
     # Windows: %LOCALAPPDATA%\hermes
