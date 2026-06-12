@@ -1,0 +1,5 @@
+name: session-list
+version: 1.0.0
+description: "Custom session list slash command (/sl) with configurable columns from session_list_config.yaml."
+author: "git_alhan"
+kind: standalone

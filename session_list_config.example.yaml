@@ -1,0 +1,22 @@
+# Copy this to ~/.hermes/session_list_config.yaml and customize.
+#
+# Available fields:
+#   # (row index), id, source, model, title, started_at, ended_at,
+#   message_count, preview, last_active, input_tokens, output_tokens,
+#   total_tokens, net_input, net_total, cache_read_tokens,
+#   cache_write_tokens, reasoning_tokens
+#
+# width: column width in chars (0 = free-form, only for last column)
+#
+# NOTE: input_tokens = cache miss (Hermes already deducts cache hits).
+#       net_input = max(0, input - cache) — would double-deduct.
+
+columns:
+  - {field: "#", width: 3, label: "#"}
+  - {field: title, width: 42, label: Title}
+  - {field: message_count, width: 5, label: Msgs}
+  - {field: cache_read_tokens, width: 7, label: hit}
+  - {field: input_tokens, width: 7, label: miss}
+  - {field: output_tokens, width: 7, label: out}
+  - {field: source, width: 4, label: Src}
+  - {field: last_active, width: 11, label: Active}
