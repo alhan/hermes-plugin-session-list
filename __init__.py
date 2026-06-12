@@ -19,13 +19,15 @@ from typing import Optional
 # ── Helpers ──────────────────────────────────────────────────────────
 
 def _hermes_home() -> Path:
-    import os
-    # Windows'ta Hermes %LOCALAPPDATA%\hermes kullanir, ~/.hermes degil
-    try:
-        from hermes_constants import get_hermes_home
-        return Path(get_hermes_home())
-    except ImportError:
-        return Path(os.environ.get("HERMES_HOME", os.path.expanduser("~/.hermes")))
+    import os, sys
+    # Hermes'in resmi yolunu bul
+    if "HERMES_HOME" in os.environ:
+        return Path(os.environ["HERMES_HOME"])
+    # Windows: %LOCALAPPDATA%\hermes
+    if sys.platform == "win32":
+        localappdata = os.environ.get("LOCALAPPDATA", os.path.expanduser("~"))
+        return Path(localappdata) / "hermes"
+    return Path(os.path.expanduser("~/.hermes"))
 
 
 def _as_float(v):
