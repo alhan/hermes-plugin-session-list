@@ -20,7 +20,12 @@ from typing import Optional
 
 def _hermes_home() -> Path:
     import os
-    return Path(os.environ.get("HERMES_HOME", os.path.expanduser("~/.hermes")))
+    # Windows'ta Hermes %LOCALAPPDATA%\hermes kullanir, ~/.hermes degil
+    try:
+        from hermes_constants import get_hermes_home
+        return Path(get_hermes_home())
+    except ImportError:
+        return Path(os.environ.get("HERMES_HOME", os.path.expanduser("~/.hermes")))
 
 
 def _as_float(v):
